@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div id="calculator-frame">
+        <div id="title">
+            <h1 class="title">Musical Interval Calculator</h1>
+        </div>
+            <div id="select-boxes">
+                <div class="select" id="select-1">
+                    <label for="select-bar-1" class="select-title">Select the first pitch</label>
+                    <select name="select-bar-1" id="select-bar-1" class="select-bar">
+                        <option value="0">C</option>
+                        <option value="1">C♯/D♭</option>
+                        <option value="2">D</option>
+                        <option value="3">D♯/E♭</option>
+                        <option value="4">E</option>
+                        <option value="5">F</option>
+                        <option value="6">F♯/G♭</option>
+                        <option value="7">G</option>
+                        <option value="8">G♯/A♭</option>
+                        <option value="9">A</option>
+                        <option value="10">A♯/B♭</option>
+                        <option value="11">B</option>
+                    </select>
+                </div>
+                <div class="select" id="select-2">
+                    <label for="select-bar-2" class="select-title">Select the second pitch</label>
+                    <select name="select-bar-2" id="select-bar-2" class="select-bar">
+                        <option value="0">C</option>
+                        <option value="1">C♯/D♭</option>
+                        <option value="2">D</option>
+                        <option value="3">D♯/E♭</option>
+                        <option value="4">E</option>
+                        <option value="5">F</option>
+                        <option value="6">F♯/G♭</option>
+                        <option value="7">G</option>
+                        <option value="8">G♯/A♭</option>
+                        <option value="9">A</option>
+                        <option value="10">A♯/B♭</option>
+                        <option value="11">B</option>
+                    </select>
+                </div>
+            </div>
+            <div id="output-box">
+                <h2 class="output-title">The interval between these notes is a:</h2>
+                <textarea id="output">placeholder</textarea>
+            </div>
+    </div>
+    <script type="text/javascript" src="script.js"></script>
+</body>
+</html>
