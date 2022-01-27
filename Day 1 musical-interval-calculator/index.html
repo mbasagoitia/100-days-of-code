@@ -9,7 +9,6 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;500&display=swap" rel="stylesheet">
-    <script type="text/javascript" src="script.js"></script>
 </head>
 <body>
     <div id="calculator-frame">
@@ -19,7 +18,7 @@
             <div id="select-boxes">
                 <div class="select" id="select-1">
                     <label for="select-bar-1" class="select-title">Select the first pitch</label>
-                    <select name="select-bar-1" id="select-bar-1" class="select-bar">
+                    <select name="select-bar-1" id="select-bar-1" class="select-bar" onchange="changeOutput()">
                         <option value="0">C</option>
                         <option value="1">C♯/D♭</option>
                         <option value="2">D</option>
@@ -36,7 +35,7 @@
                 </div>
                 <div class="select" id="select-2">
                     <label for="select-bar-2" class="select-title">Select the second pitch</label>
-                    <select name="select-bar-2" id="select-bar-2" class="select-bar">
+                    <select name="select-bar-2" id="select-bar-2" class="select-bar" onchange="changeOutput()">
                         <option value="0">C</option>
                         <option value="1">C♯/D♭</option>
                         <option value="2">D</option>
@@ -54,8 +53,10 @@
             </div>
             <div id="output-box">
                 <h2 class="output-title">The interval between these notes is a:</h2>
-                <textarea id="output">placeholder</textarea>
+                <textarea id="output">Perfect unison/octave</textarea>
             </div>
     </div>
+    <img src="img/notes-img.svg" alt ="musical notes" id="notes-img" />
+    <script type="text/javascript" src="script.js"></script>
 </body>
 </html>

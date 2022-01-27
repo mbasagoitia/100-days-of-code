@@ -7,7 +7,12 @@ body {
     align-items: center;
     justify-content: center;
 }
-
+#notes-img {
+    position: absolute;
+    height: 1000px;
+    width: 1200px;
+    z-index: -1;
+}
 #calculator-frame {
     display: flex;
     flex-wrap: wrap;
@@ -18,7 +23,7 @@ body {
     min-width: 290px;
     width: 40vw;
     border-radius: 15px;
-    background: rgba(255, 255, 255, .3);
+    background: rgba(255, 255, 255, .7);
     box-shadow: 9px -3px 50px -14px #090204;
 }
 
@@ -51,6 +56,8 @@ body {
     border-radius: 100%;
     text-align: center;
     font-weight: bold;
+    border: 2px solid black;
+    font-family: 'Nunito', sans-serif;
 }
 
 #output-box {
@@ -65,5 +72,6 @@ body {
     border-radius: 100%;
     text-align: center;
     font-weight: bold;
+    font-family: 'Nunito', sans-serif;
     padding-top: 14px;
 }
