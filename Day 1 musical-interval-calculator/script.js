@@ -16,7 +16,7 @@ function changeOutput () {
         case 3 || -9:
             output.value = "Minor third";
             break;   
-        case 4 || -8:
+        case 4 || -8:   
             output.value = "Major third";
             break;   
         case 5 || -7:
