@@ -1,0 +1,70 @@
+.background {
+    width: 50vw;
+    height: 95vh;
+    margin: 0 auto;
+    border: 1px solid black;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 100%;
+    width: 80%;
+}
+
+.title {
+    border: 1px solid black;
+    margin-top: 1em;
+}
+
+.input-list-wrapper {
+    border: 1px solid black;
+    width: 100%;
+    margin-top: 1em;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-around;
+    text-align: center;
+    height: 15em;
+}
+
+.name-list-wrapper {
+    height: 100%;
+    border: 1px solid blue;
+}
+
+.name-list {
+    list-style-type: none;
+    text-align: center;
+    column-count: 5;
+}
+
+.button-output-wrapper {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    border: 1px solid black;
+    width: 100%;
+    height: 3em;
+    padding-top: 2em;
+}
+
+li {
+    font-size: 1.3em;
+}
+
+.generate-button {
+    height: 5em;
+    margin-top: 3em;
+    border-radius: 50%;
+}
+
+.output-wrapper {
+    text-align: center;
+    margin-top: 1.5em;
+}
