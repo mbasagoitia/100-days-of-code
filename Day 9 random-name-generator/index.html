@@ -14,27 +14,17 @@
             <div class="input-list-wrapper">
                 <div class="input-wrapper">
                     <h2 class="name-input">Type a name to add</h2>
-                    <input type="text" class="bar"></input>
+                    <input type="text" class="bar" id="name-input"></input>
+                    <button id="add-name" onclick="addToList(nameInput.value)">Add name to list</button>
                 </div>
                 <div class="name-list-wrapper">
                     <h2 class="list-title">List of names</h2>
-                    <ul class="name-list">
-                        <li>test</li>            
-                        <li>test</li>            
-                        <li>test</li>            
-                        <li>test</li>            
-                        <li>test</li>            
-                        <li>test</li>            
-                        <li>test</li>            
-                        <li>test</li>            
-                        <li>test</li>            
-                        <li>test</li>            
-                        <li>test</li>            
+                    <ul id="name-list">           
                     </ul>
                 </div>
             </div>
             <div class="button-output-wrapper">
-                <button class="generate-button">Generate Random Name</button>
+                <button id="generate-button">Generate Random Name</button>
                 <div class="output-wrapper">
                     <h2 class="name-output">Random name</h2>
                     <textarea name="output" id="output" class="bar" readonly></textarea>

@@ -21,6 +21,19 @@
     margin-top: 1em;
 }
 
+.input-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 30%;
+}
+
+#add-name {
+    width: 6em;
+    height: 4em;
+    margin-top: 1em;
+}
+
 .input-list-wrapper {
     border: 1px solid black;
     width: 100%;
@@ -36,12 +49,15 @@
 .name-list-wrapper {
     height: 100%;
     border: 1px solid blue;
+    width: 60%;
 }
 
-.name-list {
+#name-list {
     list-style-type: none;
     text-align: center;
-    column-count: 5;
+    column-count: 3;
+    column-gap: 6em;
+    row-gap: 2.5em;
 }
 
 .button-output-wrapper {
@@ -54,11 +70,11 @@
     padding-top: 2em;
 }
 
-li {
-    font-size: 1.3em;
+.list-item {
+    font-size: 1.2em;
 }
 
-.generate-button {
+#generate-button {
     height: 5em;
     margin-top: 3em;
     border-radius: 50%;
