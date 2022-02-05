@@ -3,7 +3,7 @@ const nameInput = document.querySelector("#name-input");
 const addNameButton = document.querySelector("#add-name");
 const nameList = document.querySelector("#name-list");
 const generateButton = document.querySelector("#generate-button");
-const nameOutput = document.querySelector("#output");
+const nameOutput = document.querySelector("#name-output");
 
 
 //addNameButton.addEventListener("click", addToList(nameInput.value)); why isn't this working???
@@ -13,7 +13,7 @@ const nameArray = [];
 
 //when user clicks button, add name to name list
 function addToList(name) {
-    if (nameArray.length > 24) {
+    if (nameArray.length > 23) {
         alert("Maximum number of names reached");
     } else {
     nameArray.push(name);
@@ -38,6 +38,6 @@ function displayRandomName() {
     } else {
     let randomIndex = Math.floor(Math.random()*(nameArray.length));
     //console.log(randomIndex);
-    nameOutput.textContent = nameArray[randomIndex];
+    nameOutput.value = nameArray[randomIndex];
     }
 }
