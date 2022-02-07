@@ -9,8 +9,9 @@
 </head>
 <body>
     <div class="background">
-        <div class="content-wrapper">
-            <h1 class="title">Daily Practice Log</h1>
+        <h1 class="title">Daily Practice Log</h1>
+        <h2 class="date">(Date)</h2>
+        <div class="form-content-wrapper">
             <div class="form-wrapper">
                 <div class="left-wrapper">
                     <div class="question-response-form">
@@ -19,16 +20,22 @@
                          type="number" class="response-box"><p class="response-text">minutes</p>
                          <p class="question">How long do you want your warm up to be?</p>
                         <input type="number" class="response-box"><p class="response-text">minutes</p>
-                        <p class="question">How many solo pieces will you practice today?</p>
-                        <input type="number" class="response-box">
-                        <p class="question">How many chamber music pieces?</p>
-                        <input type="number" class="response-box">
-                        <p class="question">Large ensemble pieces?</p>
-                        <input type="number" class="response-box">
+                        <p class="question">Which solo pieces will you practice today?</p>
+                        <input type="text" class="response-box">
+                        <input type="text" class="response-box">
+                        <input type="text" class="response-box">
+                        <p class="question">Which chamber music pieces?</p>
+                        <input type="text" class="response-box">
+                        <input type="text" class="response-box">
+                        <input type="text" class="response-box">
+                        <p class="question">Which large ensemble pieces?</p>
+                        <input type="text" class="response-box">
+                        <input type="text" class="response-box">
+                        <input type="text" class="response-box">
                         <p class="question">Any other music?</p>
-                        <input type="text" class="response-box"><input type="number" 
-                        class="response-box"><p class="response-text">hours</p><input
-                        type="number" class="response-box"><p class="response-text">minutes</p>
+                        <input type="text" class="response-box">
+                        <input type="text" class="response-box">
+                        <input type="text" class="response-box">
                     </div>
                 </div>
                 <div class="right-wrapper">
@@ -47,9 +54,152 @@
                 </div>
             </div>
         </div>
+        <button class="hide-button" onclick="showChart()"></button>
+        <!--need to add hidden class to this wrapper eventually-->
+        <div class="chart-content-wrapper hidden">
+            <table class="practice-chart">
+                <tr>
+                    <th>Warm up for (x minutes)</th>
+                    <td></td>
+                </tr>
+                <tr>
+                    <th></th>
+                    <th>Skills Practiced</th>
+                </tr>
+                <tr>
+                    <th>Solo Pieces (x minutes)</th>
+                    <th>Intonation</th>
+                    <th>Rhythm</th>
+                    <th>Phrasing</th>
+                    <th>Musicality</th>
+                    <th>Other</th>
+                </tr>
+                <tr>
+                    <td>Solo piece 1</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>Solo piece 2</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>Solo piece 3</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <th>Chamber music (x minutes)</th>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td> 
+                </tr>
+                <tr>
+                    <td>Chamber music piece 1</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>Chamber music piece 2</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>Chamber music piece 3</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>               
+                <tr>
+                    <th>Ensemble music (x minutes)</th>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td> 
+                </tr>
+                <tr>
+                    <td>Ensemble music piece 1</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>Ensemble music piece 2</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>Ensemble music piece 3</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>               
+                <tr>
+                    <th>Other music (x minutes)</th>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td> 
+                </tr>
+                <tr>
+                    <td>Other piece 1</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>Other piece 2</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>Other piece 3</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>        
+            </table>
+            <label for="practice-notes">Notes:</label>
+            <textarea id="practice-notes"></textarea>
+        </div>
     </div>
-
-
+    
     <script src="script.js"></script>
 </body>
 </html>
