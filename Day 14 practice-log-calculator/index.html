@@ -16,10 +16,14 @@
                 <div class="left-wrapper">
                     <div class="question-response-form">
                         <p class="question">Good (morning)! How long do you have to practice today?</p>
-                        <input type="number" class="response-box"><p class="response-text">hours</p><input
-                         type="number" class="response-box"><p class="response-text">minutes</p>
-                         <p class="question">How long do you want your warm up to be?</p>
-                        <input type="number" class="response-box"><p class="response-text">minutes</p>
+                        <div class="number-input-wrapper">
+                            <input type="number" min="0" max="24" class="response-box"><p class="response-text">hours</p><input
+                            type="number" min="0" max="59" class="response-box"><p class="response-text">minutes</p>
+                        </div>    
+                        <p class="question">How long do you want your warm up to be?</p>
+                        <div class="number-input-wrapper">
+                            <input type="number" class="response-box"><p class="response-text">minutes</p>
+                        </div>
                         <p class="question">Which solo pieces will you practice today?</p>
                         <input type="text" class="response-box">
                         <input type="text" class="response-box">
@@ -41,30 +45,42 @@
                 <div class="right-wrapper">
                     <div class="time-calc-form">
                         <p class="question">What percent of your time do you want to dedicate to solo repertoire?</p>
-                        <input type="number" class="response-box">
+                        <div class="number-input-wrapper">
+                            <input type="number" min="0" max="100" step="5" class="response-box">
+                            <p class="percent">&#37</p>
+                        </div>
                         <p class="question">And to chamber music?</p>
-                        <input type="number" class="response-box">
+                        <div class="number-input-wrapper">
+                            <input type="number" min="0" max="100" step="5" class="response-box">
+                            <p class="percent">&#37</p>
+                        </div>
                         <p class="question">To large ensemble music?</p>
-                        <input type="number" class="response-box">
+                        <div class="number-input-wrapper">
+                            <input type="number" min="0" max="100" step="5" class="response-box">
+                            <p class="percent">&#37</p>
+                        </div>
                         <p class="question">To any other music?</p>
-                        <input type="number" class="response-box">
-                        <label for="randomize-order-box">Randomize order?</label>
+                        <div class="number-input-wrapper">
+                            <input type="number" min="0" max="100" step="5" class="response-box">
+                            <p class="percent">&#37</p>
+                        </div>
+                        <label for="randomize-order-box" id="randomize-order-label">Randomize order</label>
                         <input type="checkbox" id="randomize-order-box">
+                        <button id="show-chart-button" onclick="showChart()">Create practice chart</button>
                     </div>
                 </div>
             </div>
         </div>
-        <button class="hide-button" onclick="showChart()"></button>
         <!--need to add hidden class to this wrapper eventually-->
-        <div class="chart-content-wrapper hidden">
+        <div class="chart-content-wrapper">
+            <button id="show-form-button" onclick="showForm()">Edit form</button>
             <table class="practice-chart">
                 <tr>
-                    <th>Warm up for (x minutes)</th>
-                    <td></td>
+                    <th class="warm-up">Warm up for (x minutes)</th>
                 </tr>
                 <tr>
-                    <th></th>
-                    <th>Skills Practiced</th>
+                    <td class="no-border"></td>
+                    <th colspan="5" class="skills-practiced no-border">Skills Practiced</th>
                 </tr>
                 <tr>
                     <th>Solo Pieces (x minutes)</th>
@@ -76,123 +92,123 @@
                 </tr>
                 <tr>
                     <td>Solo piece 1</td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
+                    <td class="empty-space"></td>
+                    <td class="empty-space"></td>
+                    <td class="empty-space"></td>
+                    <td class="empty-space"></td>
+                    <td class="empty-space"></td>
                 </tr>
                 <tr>
                     <td>Solo piece 2</td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
+                    <td class="empty-space"></td>
+                    <td class="empty-space"></td>
+                    <td class="empty-space"></td>
+                    <td class="empty-space"></td>
+                    <td class="empty-space"></td>
                 </tr>
                 <tr>
                     <td>Solo piece 3</td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
+                    <td class="empty-space"></td>
+                    <td class="empty-space"></td>
+                    <td class="empty-space"></td>
+                    <td class="empty-space"></td>
+                    <td class="empty-space"></td>
                 </tr>
                 <tr>
                     <th>Chamber music (x minutes)</th>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td> 
+                    <td class="empty-space"></td>
+                    <td class="empty-space"></td>
+                    <td class="empty-space"></td>
+                    <td class="empty-space"></td>
+                    <td class="empty-space"></td> 
                 </tr>
                 <tr>
                     <td>Chamber music piece 1</td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
+                    <td class="empty-space"></td>
+                    <td class="empty-space"></td>
+                    <td class="empty-space"></td>
+                    <td class="empty-space"></td>
+                    <td class="empty-space"></td>
                 </tr>
                 <tr>
                     <td>Chamber music piece 2</td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
+                    <td class="empty-space"></td>
+                    <td class="empty-space"></td>
+                    <td class="empty-space"></td>
+                    <td class="empty-space"></td>
+                    <td class="empty-space"></td>
                 </tr>
                 <tr>
                     <td>Chamber music piece 3</td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
+                    <td class="empty-space"></td>
+                    <td class="empty-space"></td>
+                    <td class="empty-space"></td>
+                    <td class="empty-space"></td>
+                    <td class="empty-space"></td>
                 </tr>               
                 <tr>
                     <th>Ensemble music (x minutes)</th>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td> 
+                    <td class="empty-space"></td>
+                    <td class="empty-space"></td>
+                    <td class="empty-space"></td>
+                    <td class="empty-space"></td>
+                    <td class="empty-space"></td> 
                 </tr>
                 <tr>
                     <td>Ensemble music piece 1</td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
+                    <td class="empty-space"></td>
+                    <td class="empty-space"></td>
+                    <td class="empty-space"></td>
+                    <td class="empty-space"></td>
+                    <td class="empty-space"></td>
                 </tr>
                 <tr>
                     <td>Ensemble music piece 2</td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
+                    <td class="empty-space"></td>
+                    <td class="empty-space"></td>
+                    <td class="empty-space"></td>
+                    <td class="empty-space"></td>
+                    <td class="empty-space"></td>
                 </tr>
                 <tr>
                     <td>Ensemble music piece 3</td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
+                    <td class="empty-space"></td>
+                    <td class="empty-space"></td>
+                    <td class="empty-space"></td>
+                    <td class="empty-space"></td>
+                    <td class="empty-space"></td>
                 </tr>               
                 <tr>
                     <th>Other music (x minutes)</th>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td> 
+                    <td class="empty-space"></td>
+                    <td class="empty-space"></td>
+                    <td class="empty-space"></td>
+                    <td class="empty-space"></td>
+                    <td class="empty-space"></td> 
                 </tr>
                 <tr>
                     <td>Other piece 1</td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
+                    <td class="empty-space"></td>
+                    <td class="empty-space"></td>
+                    <td class="empty-space"></td>
+                    <td class="empty-space"></td>
+                    <td class="empty-space"></td>
                 </tr>
                 <tr>
                     <td>Other piece 2</td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
+                    <td class="empty-space"></td>
+                    <td class="empty-space"></td>
+                    <td class="empty-space"></td>
+                    <td class="empty-space"></td>
+                    <td class="empty-space"></td>
                 </tr>
                 <tr>
                     <td>Other piece 3</td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
+                    <td class="empty-space"></td>
+                    <td class="empty-space"></td>
+                    <td class="empty-space"></td>
+                    <td class="empty-space"></td>
+                    <td class="empty-space"></td>
                 </tr>        
             </table>
             <label for="practice-notes">Notes:</label>
