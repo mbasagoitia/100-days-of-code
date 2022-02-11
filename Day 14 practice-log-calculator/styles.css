@@ -79,6 +79,14 @@ input[type=number] {
 
 /* styles for the chart */
 
+.chart-content-wrapper {
+    margin: 0 auto;
+}
+
+#show-form-button {
+    margin-bottom: 2em;
+}
+
 .no-border {
     border: none;
 }
@@ -89,12 +97,33 @@ table, th, td {
   }
 
 .empty-space {
-    height: 4em;
-    width: 4em;
+    height: 3em;
+    width: 8em;
 }
 
 .warm-up {
     height: 2em;
+}
+
+.skills-practiced {
+    line-height: 0.3em;
+}
+
+#practice-notes {
+    margin-top: 2em;
+    width: 80%;
+    height: 10em;
+}
+
+.practice-notes-label {
+    text-align: center;
+    border: 1px solid black;
+}
+
+.practice-notes-wrapper {
+    display: flex;
+    justify-content: center;
+    text-align: center;
 }
 
 
