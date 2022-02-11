@@ -11,17 +11,17 @@
 /* styles for the form */
 
 .form-content-wrapper {
-    border: 1px solid black;
     display: flex;
-    justify-content: center;
+    justify-content: space-evenly;
+    width: 100%;
+    justify-self: center;
 }
 
 .form-wrapper {
-    border: 1px solid black;
     padding: 2em;
-    width: 100%;
     display: flex;
     justify-content: space-evenly;
+    width: 100%;
 }
 
 .time-calc-form {
@@ -77,6 +77,7 @@ input[type=number] {
     }
 }
 
+
 /* styles for the chart */
 
 .chart-content-wrapper {
@@ -85,6 +86,7 @@ input[type=number] {
 
 #show-form-button {
     margin-bottom: 2em;
+    margin-top: 2em;
 }
 
 .no-border {
@@ -101,6 +103,12 @@ table, th, td {
     width: 8em;
 }
 
+.empty-space:hover {
+    background-image: url("img/check-solid.svg");
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
 .warm-up {
     height: 2em;
 }
@@ -111,19 +119,23 @@ table, th, td {
 
 #practice-notes {
     margin-top: 2em;
-    width: 80%;
+    margin-bottom: 2em;
+    width: 100%;
     height: 10em;
+    resize: none;
 }
 
 .practice-notes-label {
     text-align: center;
-    border: 1px solid black;
+    display: block;
+    margin-top: 2em;
 }
 
 .practice-notes-wrapper {
-    display: flex;
     justify-content: center;
     text-align: center;
 }
+
+
 
 
