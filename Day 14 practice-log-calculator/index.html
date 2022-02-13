@@ -25,43 +25,43 @@
                             <input type="number" class="response-box" id="warmup-input"><p class="response-text">minutes</p>
                         </div>
                         <p class="question">Which solo pieces will you practice today?</p>
-                        <input type="text" class="response-box">
-                        <input type="text" class="response-box">
-                        <input type="text" class="response-box">
+                        <input id="solo-1" type="text" class="response-box">
+                        <input id="solo-2" type="text" class="response-box">
+                        <input id="solo-3" type="text" class="response-box">
                         <p class="question">Which chamber music pieces?</p>
-                        <input type="text" class="response-box">
-                        <input type="text" class="response-box">
-                        <input type="text" class="response-box">
+                        <input id="chamber-1" type="text" class="response-box">
+                        <input id="chamber-2" type="text" class="response-box">
+                        <input id="chamber-3" type="text" class="response-box">
                         <p class="question">Which large ensemble pieces?</p>
-                        <input type="text" class="response-box">
-                        <input type="text" class="response-box">
-                        <input type="text" class="response-box">
+                        <input id="ens-1" type="text" class="response-box">
+                        <input id="ens-2" type="text" class="response-box">
+                        <input id="ens-3" type="text" class="response-box">
                         <p class="question">Any other music?</p>
-                        <input type="text" class="response-box">
-                        <input type="text" class="response-box">
-                        <input type="text" class="response-box">
+                        <input id="other-1" type="text" class="response-box">
+                        <input id="other-2" type="text" class="response-box">
+                        <input id="other-3" type="text" class="response-box">
                     </div>
                 </div>
                 <div class="right-wrapper">
                     <div class="time-calc-form">
                         <p class="question">What percent of your time do you want to dedicate to solo repertoire?</p>
                         <div class="number-input-wrapper">
-                            <input type="number" min="0" max="100" step="5" class="response-box">
+                            <input type="number" min="0" max="100" step="5" class="response-box" id="solo-percent-input">
                             <p class="percent">&#37</p>
                         </div>
                         <p class="question">And to chamber music?</p>
                         <div class="number-input-wrapper">
-                            <input type="number" min="0" max="100" step="5" class="response-box">
+                            <input type="number" min="0" max="100" step="5" class="response-box" id="chamber-percent-input">
                             <p class="percent">&#37</p>
                         </div>
                         <p class="question">To large ensemble music?</p>
                         <div class="number-input-wrapper">
-                            <input type="number" min="0" max="100" step="5" class="response-box">
+                            <input type="number" min="0" max="100" step="5" class="response-box" id="ens-percent-input">
                             <p class="percent">&#37</p>
                         </div>
                         <p class="question">To any other music?</p>
                         <div class="number-input-wrapper">
-                            <input type="number" min="0" max="100" step="5" class="response-box">
+                            <input type="number" min="0" max="100" step="5" class="response-box" id="other-percent-input">
                             <p class="percent">&#37</p>
                         </div>
                         <label for="randomize-order-box" id="randomize-order-label">Randomize order</label>
@@ -76,14 +76,14 @@
             <button id="show-form-button" onclick="showForm()">Edit form</button>
             <table class="practice-chart">
                 <tr>
-                    <th class="warm-up no-border">Warm up for (x minutes)</th>
+                    <th id="warmup-time-chart" class="warm-up no-border"></th>
                 </tr>
                 <tr>
                     <td class="no-border"></td>
                     <th colspan="5" class="skills-practiced no-border"><p>Skills Practiced</p><p>(Check when completed)</p></th>
                 </tr>
                 <tr>
-                    <th class="no-border">Solo Pieces (x minutes)</th>
+                    <th id="solo-row" class="no-border">Solo Pieces (x minutes)</th>
                     <th class="no-border">Intonation</th>
                     <th class="no-border">Rhythm</th>
                     <th class="no-border">Phrasing</th>
@@ -91,7 +91,7 @@
                     <th class="no-border">Other</th>
                 </tr>
                 <tr>
-                    <td>Solo piece 1</td>
+                    <td id="solo-1-chart">Solo piece 1</td>
                     <td class="empty-space"></td>
                     <td class="empty-space"></td>
                     <td class="empty-space"></td>
@@ -99,7 +99,7 @@
                     <td class="empty-space"></td>
                 </tr>
                 <tr>
-                    <td>Solo piece 2</td>
+                    <td id="solo-2-chart">Solo piece 2</td>
                     <td class="empty-space"></td>
                     <td class="empty-space"></td>
                     <td class="empty-space"></td>
@@ -107,7 +107,7 @@
                     <td class="empty-space"></td>
                 </tr>
                 <tr>
-                    <td>Solo piece 3</td>
+                    <td id="solo-3-chart">Solo piece 3</td>
                     <td class="empty-space"></td>
                     <td class="empty-space"></td>
                     <td class="empty-space"></td>
@@ -117,8 +117,8 @@
                 <tr>
                     <th class="no-border">Chamber music (x minutes)</th> 
                 </tr>
-                <tr>
-                    <td>Chamber music piece 1</td>
+                <tr id="chamber-row">
+                    <td id="chamber-1-chart">Chamber music piece 1</td>
                     <td class="empty-space"></td>
                     <td class="empty-space"></td>
                     <td class="empty-space"></td>
@@ -126,7 +126,7 @@
                     <td class="empty-space"></td>
                 </tr>
                 <tr>
-                    <td>Chamber music piece 2</td>
+                    <td id="chamber-2-chart">Chamber music piece 2</td>
                     <td class="empty-space"></td>
                     <td class="empty-space"></td>
                     <td class="empty-space"></td>
@@ -134,7 +134,7 @@
                     <td class="empty-space"></td>
                 </tr>
                 <tr>
-                    <td>Chamber music piece 3</td>
+                    <td id="chamber-3-chart">Chamber music piece 3</td>
                     <td class="empty-space"></td>
                     <td class="empty-space"></td>
                     <td class="empty-space"></td>
@@ -144,8 +144,8 @@
                 <tr>
                     <th class="no-border">Ensemble music (x minutes)</th>
                 </tr>
-                <tr>
-                    <td>Ensemble music piece 1</td>
+                <tr id="ens-row">
+                    <td id="ens-1-chart">Ensemble music piece 1</td>
                     <td class="empty-space"></td>
                     <td class="empty-space"></td>
                     <td class="empty-space"></td>
@@ -153,7 +153,7 @@
                     <td class="empty-space"></td>
                 </tr>
                 <tr>
-                    <td>Ensemble music piece 2</td>
+                    <td id="ens-2-chart">Ensemble music piece 2</td>
                     <td class="empty-space"></td>
                     <td class="empty-space"></td>
                     <td class="empty-space"></td>
@@ -161,7 +161,7 @@
                     <td class="empty-space"></td>
                 </tr>
                 <tr>
-                    <td>Ensemble music piece 3</td>
+                    <td id="ens-3-chart">Ensemble music piece 3</td>
                     <td class="empty-space"></td>
                     <td class="empty-space"></td>
                     <td class="empty-space"></td>
@@ -171,8 +171,8 @@
                 <tr>
                     <th class="no-border">Other music (x minutes)</th>
                 </tr>
-                <tr>
-                    <td>Other piece 1</td>
+                <tr id="other-row">
+                    <td id="other-1-chart">Other piece 1</td>
                     <td class="empty-space"></td>
                     <td class="empty-space"></td>
                     <td class="empty-space"></td>
@@ -180,7 +180,7 @@
                     <td class="empty-space"></td>
                 </tr>
                 <tr>
-                    <td>Other piece 2</td>
+                    <td id="other-2-chart">Other piece 2</td>
                     <td class="empty-space"></td>
                     <td class="empty-space"></td>
                     <td class="empty-space"></td>
@@ -188,7 +188,7 @@
                     <td class="empty-space"></td>
                 </tr>
                 <tr>
-                    <td>Other piece 3</td>
+                    <td id="other-3-chart">Other piece 3</td>
                     <td class="empty-space"></td>
                     <td class="empty-space"></td>
                     <td class="empty-space"></td>

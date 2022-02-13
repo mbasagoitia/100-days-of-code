@@ -113,6 +113,7 @@ table, th, td {
     background-image: url("img/check-solid.svg");
     background-position: center;
     background-repeat: no-repeat;
+    opacity: 50%;
 }
 
 .warm-up {
