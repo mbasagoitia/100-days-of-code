@@ -40,38 +40,45 @@ const totalHours = document.querySelector("#practice-time-hours");
 const totalMins = document.querySelector("#practice-time-minutes");
 
 let totalPracticeTime;
+let totalPracticeTimeArray = [];
 
 totalHours.addEventListener("input", function () {
     if (!totalHours.value) {
         totalPracticeTime = parseInt(totalMins.value);
-        console.log(totalPracticeTime);
+        totalPracticeTimeArray.push(totalPracticeTime);
+        console.log(totalPracticeTimeArray);
     } else if (!totalMins.value) {
         totalPracticeTime = parseInt(totalHours.value)*60;
-        console.log(totalPracticeTime);
+        totalPracticeTimeArray.push(totalPracticeTime);
+        console.log(totalPracticeTimeArray);
     } else if (parseInt(totalHours.value) > 24) {
         alert("Please choose a time frame that is less than 24 hours");
         totalHours.value = "";
     }
     else {
     totalPracticeTime = parseInt(totalHours.value)*60 + parseInt(totalMins.value);
-    console.log(totalPracticeTime);
+    totalPracticeTimeArray.push(totalPracticeTime);
+    console.log(totalPracticeTimeArray);
     }
 })
 
 totalMins.addEventListener("input", function () {
     if (!totalHours.value) {
         totalPracticeTime = parseInt(totalMins.value);
-        console.log(totalPracticeTime);
+        totalPracticeTimeArray.push(totalPracticeTime);
+        console.log(totalPracticeTimeArray);
     } else if (!totalMins.value) {
         totalPracticeTime = parseInt(totalHours.value)*60;
-        console.log(totalPracticeTime);
+        totalPracticeTimeArray.push(totalPracticeTime);
+        console.log(totalPracticeTimeArray);
     } else if (parseInt(totalMins.value) > 59) {
         alert("Please choose a time frame that is less than 1 hour");
         totalMins.value = "";
     }
     else {
     totalPracticeTime = parseInt(totalHours.value)*60 + parseInt(totalMins.value);
-    console.log(totalPracticeTime);
+    totalPracticeTimeArray.push(totalPracticeTime);
+    console.log(typeof(totalPracticeTimeArray[1]));
     }
 })
 
@@ -80,6 +87,7 @@ totalMins.addEventListener("input", function () {
 const warmup = document.querySelector("#warmup-input");
 const warmupTimeChart = document.querySelector("#warmup-time-chart");
 let warmupTime;
+let warmupTimeArray = [];
 
 warmup.addEventListener("input", function () {
     warmupTime = parseInt(warmup.value);
@@ -94,10 +102,14 @@ warmup.addEventListener("input", function () {
     else if (warmupTime === 1) {
         warmupTimeChart.classList.remove("hidden");
         warmupTimeChart.innerText = `Warm up for 1 minute`;
+        warmupTimeArray.push(warmupTime);
+        console.log(warmupTimeArray);
     }
     else {
     warmupTimeChart.classList.remove("hidden");
     warmupTimeChart.innerText = `Warm up for ${warmupTime} minutes`;
+    warmupTimeArray.push(warmupTime);
+    console.log(typeof(warmupTimeArray[0]));
     }
 });
 
@@ -190,18 +202,63 @@ other3Input.addEventListener("input", function () {
 //calculate percentages of practice time
 
 const soloPercent = document.querySelector("#solo-percent-input");
+const soloTitle = document.querySelector("#solo-row");
+soloPercent.addEventListener("input", function () {
+    let repPracticeTime = totalPracticeTimeArray[totalPracticeTimeArray.length-1] - warmupTimeArray[warmupTimeArray.length-1];
+    console.log(repPracticeTime);
+    let soloPracticeTime = parseInt(soloPercent.value)*repPracticeTime/100;
+    if (!soloPercent.value || soloPercent.value === 0) {
+        soloPracticeTime = 0;
+    }
+    console.log(soloPracticeTime);
+    soloTitle.innerText = `Solo Pieces (${soloPracticeTime} minutes)`;
+})
+
 const chamberPercent = document.querySelector("#chamber-percent-input");
+const chamberTitle = document.querySelector("#chamber-title");
+chamberPercent.addEventListener("input", function () {
+    let repPracticeTime = totalPracticeTimeArray[totalPracticeTimeArray.length-1] - warmupTimeArray[warmupTimeArray.length-1];
+    console.log(repPracticeTime);
+    let chamberPracticeTime = parseInt(chamberPercent.value)*repPracticeTime/100;
+    if (!chamberPercent.value || chamberPercent.value === 0) {
+        chamberPracticeTime = 0;
+    }
+    console.log(chamberPracticeTime);
+    chamberTitle.innerText = `Chamber Music (${chamberPracticeTime} minutes)`;
+})
+
 const ensPercent = document.querySelector("#ens-percent-input");
+const ensTitle = document.querySelector("#ens-title");
+ensPercent.addEventListener("input", function () {
+    let repPracticeTime = totalPracticeTimeArray[totalPracticeTimeArray.length-1] - warmupTimeArray[warmupTimeArray.length-1];
+    console.log(repPracticeTime);
+    let ensPracticeTime = parseInt(ensPercent.value)*repPracticeTime/100;
+    if (!ensPercent.value || ensPercent.value === 0) {
+        ensPracticeTime = 0;
+    }
+    console.log(ensPracticeTime);
+    ensTitle.innerText = `Ensemble Music (${ensPracticeTime} minutes)`;
+})
+
 const otherPercent = document.querySelector("#other-percent-input");
+const otherTitle = document.querySelector("#other-title");
+otherPercent.addEventListener("input", function () {
+    let repPracticeTime = totalPracticeTimeArray[totalPracticeTimeArray.length-1] - warmupTimeArray[warmupTimeArray.length-1];
+    console.log(repPracticeTime);
+    let otherPracticeTime = parseInt(otherPercent.value)*repPracticeTime/100;
+    if (!otherPercent.value || otherPercent.value === 0) {
+        otherPracticeTime = 0;
+    }
+    console.log(otherPracticeTime);
+    otherTitle.innerText = `Other Music (${otherPracticeTime} minutes)`;
+})
 
-let repPracticeTime = totalPracticeTime - warmupTime;
 
-let soloPercentTime = 
 
 
 //put this on the final button
 if (!totalHours.value && !totalMins.value) {
-    alert("You must enter your total practice time");
+    //alert("You must enter your total practice time");
 }
 else if (parseInt(soloPercent.value) + parseInt(chamberPercent.value) + parseInt(ensPercent.value) + parseInt(otherPercent.value) !== 100) {
     alert("Your total practice time allotment must equal 100%");
