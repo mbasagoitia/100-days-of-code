@@ -204,14 +204,13 @@ other3Input.addEventListener("input", function () {
 
 const soloPercent = document.querySelector("#solo-percent-input");
 const soloTitle = document.querySelector("#solo-row");
+let soloPracticeTime = 0;
 soloPercent.addEventListener("input", function () {
     let repPracticeTime = totalPracticeTimeArray[totalPracticeTimeArray.length-1] - warmupTimeArray[warmupTimeArray.length-1];
     console.log(repPracticeTime);
-    let soloPracticeTime = parseInt(soloPercent.value)*repPracticeTime/100;
-    if (!soloPercent.value || soloPercent.value === 0) {
-        soloPracticeTime = 0;
+    if (soloPercent.value) {
+        soloPracticeTime = parseInt(soloPercent.value)*repPracticeTime/100;;
     }
-    console.log(soloPracticeTime);
     if (soloPracticeTime > 179) {
         let leftoverMinutes = soloPracticeTime - 120;
         soloTitle.innerText = `Solo Pieces (3 hours ${leftoverMinutes} minutes)`;
@@ -230,12 +229,12 @@ soloPercent.addEventListener("input", function () {
 
 const chamberPercent = document.querySelector("#chamber-percent-input");
 const chamberTitle = document.querySelector("#chamber-title");
+let chamberPracticeTime = 0;
 chamberPercent.addEventListener("input", function () {
     let repPracticeTime = totalPracticeTimeArray[totalPracticeTimeArray.length-1] - warmupTimeArray[warmupTimeArray.length-1];
     console.log(repPracticeTime);
-    let chamberPracticeTime = parseInt(chamberPercent.value)*repPracticeTime/100;
-    if (!chamberPercent.value || chamberPercent.value === 0) {
-        chamberPracticeTime = 0;
+    if (chamberPercent.value) {
+        chamberPracticeTime = parseInt(chamberPercent.value)*repPracticeTime/100;;
     }
     console.log(chamberPracticeTime);
     if (chamberPracticeTime > 179) {
@@ -256,12 +255,12 @@ chamberPercent.addEventListener("input", function () {
 
 const ensPercent = document.querySelector("#ens-percent-input");
 const ensTitle = document.querySelector("#ens-title");
+let ensPracticeTime = 0;
 ensPercent.addEventListener("input", function () {
     let repPracticeTime = totalPracticeTimeArray[totalPracticeTimeArray.length-1] - warmupTimeArray[warmupTimeArray.length-1];
     console.log(repPracticeTime);
-    let ensPracticeTime = parseInt(ensPercent.value)*repPracticeTime/100;
-    if (!ensPercent.value || ensPercent.value === 0) {
-        ensPracticeTime = 0;
+    if (ensPercent.value) {
+        ensPracticeTime = parseInt(ensPercent.value)*repPracticeTime/100;;
     }
     console.log(ensPracticeTime);
     if (ensPracticeTime > 179) {
@@ -282,12 +281,12 @@ ensPercent.addEventListener("input", function () {
 
 const otherPercent = document.querySelector("#other-percent-input");
 const otherTitle = document.querySelector("#other-title");
+let otherPracticeTime = 0;
 otherPercent.addEventListener("input", function () {
     let repPracticeTime = totalPracticeTimeArray[totalPracticeTimeArray.length-1] - warmupTimeArray[warmupTimeArray.length-1];
     console.log(repPracticeTime);
-    let otherPracticeTime = parseInt(otherPercent.value)*repPracticeTime/100;
-    if (!otherPercent.value || otherPercent.value === 0) {
-        otherPracticeTime = 0;
+    if (otherPercent.value) {
+        otherPracticeTime = parseInt(otherPercent.value)*repPracticeTime/100;;
     }
     console.log(otherPracticeTime);
     if (otherPracticeTime > 179) {
@@ -325,7 +324,7 @@ const otherRow3 = document.querySelector("#other-3-row");
 
 //put this on the button
 function createChart () {
-
+    console.log(soloPracticeTime);
     //delete rows if left empty or percent is 0%
     if (!solo1Input.value) {
         soloRow1.classList.add("hidden");
@@ -405,17 +404,15 @@ function createChart () {
 
     if (!totalHours.value && !totalMins.value) {
         alert("You must enter your total practice time");
-        location.reload();
     }
-    else if (parseInt(soloPercent.value) + parseInt(chamberPercent.value) + parseInt(ensPercent.value) + parseInt(otherPercent.value) !== 100) {
+    //if there is a percentage but no piece tell them to add a piece else if ()
+    else if (soloPracticeTime + chamberPracticeTime + ensPracticeTime + otherPracticeTime !== totalPracticeTime) {
         alert("Your total practice time allotment must equal 100%");
-        location.reload();
     } 
     else if (!solo1Input.value && !solo2Input.value && !solo3Input.value && !chamber1Input.value
         && !chamber2Input.value && !chamber3Input.value && !ens1Input.value && !ens2Input.value && !ens3Input.value
         && !other1Input.value && !other2Input.value && !other3Input.value) {
             alert("You must enter at least one piece to practice");
-            location.reload();
         }
     else {
     showChart();
