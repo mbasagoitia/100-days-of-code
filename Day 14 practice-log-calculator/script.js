@@ -321,11 +321,7 @@ const otherRow1 = document.querySelector("#other-row");
 const otherRow2 = document.querySelector("#other-2-row");
 const otherRow3 = document.querySelector("#other-3-row");
 
-
-//put this on the button
-function createChart () {
-    console.log(soloPracticeTime);
-    //delete rows if left empty or percent is 0%
+function fillChart () {
     if (!solo1Input.value) {
         soloRow1.classList.add("hidden");
     }
@@ -401,11 +397,26 @@ function createChart () {
         otherRow2.classList.add("hidden");
         otherRow3.classList.add("hidden");
     }
+}
+
+//put this on the button
+function createChart () {
 
     if (!totalHours.value && !totalMins.value) {
         alert("You must enter your total practice time");
     }
-    //if there is a percentage but no piece tell them to add a piece else if ()
+    else if (soloPercent.value && (!solo1Input.value && !solo2Input.value && !solo3Input.value)) {
+        alert("Please enter at least one solo piece to practice");
+    }
+    else if (chamberPercent.value && (!chamber1Input.value && !chamber2Input.value && !chamber3Input.value)) {
+        alert("Please enter at least one chamber music piece to practice");
+    }
+    else if (ensPercent.value && (!ens1Input.value && !ens2Input.value && !ens3Input.value)) {
+        alert("Please enter at least one ensemble music piece to practice");
+    }
+    else if (otherPercent.value && (!other1Input.value && !other2Input.value && !other3Input.value)) {
+        alert("Please enter at least one piece of music in the Other category");
+    }
     else if (soloPracticeTime + chamberPracticeTime + ensPracticeTime + otherPracticeTime !== totalPracticeTime) {
         alert("Your total practice time allotment must equal 100%");
     } 
@@ -415,7 +426,8 @@ function createChart () {
             alert("You must enter at least one piece to practice");
         }
     else {
+    fillChart();
     showChart();
     }
-
+    
 }
