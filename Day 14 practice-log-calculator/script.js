@@ -78,7 +78,7 @@ totalMins.addEventListener("input", function () {
     else {
     totalPracticeTime = parseInt(totalHours.value)*60 + parseInt(totalMins.value);
     totalPracticeTimeArray.push(totalPracticeTime);
-    console.log(typeof(totalPracticeTimeArray[1]));
+    console.log(totalPracticeTimeArray[1]);
     }
 })
 
@@ -90,11 +90,14 @@ let warmupTime = 0;
 let warmupTimeArray = [0];
 
 warmup.addEventListener("input", function () {
-    warmupTime = parseInt(warmup.value);
-    if (!warmupTime) {
+    if (warmup.value) {
+        warmupTime = parseInt(warmup.value);
+        warmupTimeArray.push(warmupTime);
+    }
+    else {
         warmupTimeChart.classList.add("hidden");
     }
-    else if (warmupTime > 59) {
+    if (warmupTime > 59) {
         alert("Please choose a warm up time that is less than one hour");
         warmupTimeChart.classList.add("hidden");
         warmup.value = "";
@@ -105,11 +108,14 @@ warmup.addEventListener("input", function () {
         warmupTimeArray.push(warmupTime);
         console.log(warmupTimeArray);
     }
+    else if (warmupTime === 0) {
+        warmupTimeChart.classList.add("hidden");
+    }
     else {
         warmupTimeChart.classList.remove("hidden");
-        warmupTimeChart.innerText = `Warm up for ${warmupTime} minutes`;
+        warmupTimeChart.innerText = `Warm up for ${warmupTimeArray[warmupTimeArray.length-1]} minutes`;
         warmupTimeArray.push(warmupTime);
-        console.log(typeof(warmupTimeArray[0]));
+        console.log(warmupTimeArray[warmupTimeArray.length-1]);
     }
 });
 
@@ -205,11 +211,23 @@ other3Input.addEventListener("input", function () {
 const soloPercent = document.querySelector("#solo-percent-input");
 const soloTitle = document.querySelector("#solo-row");
 let soloPracticeTime = 0;
-soloPercent.addEventListener("input", function () {
+const chamberPercent = document.querySelector("#chamber-percent-input");
+const chamberTitle = document.querySelector("#chamber-title");
+let chamberPracticeTime = 0;
+const ensPercent = document.querySelector("#ens-percent-input");
+const ensTitle = document.querySelector("#ens-title");
+let ensPracticeTime = 0;
+const otherPercent = document.querySelector("#other-percent-input");
+const otherTitle = document.querySelector("#other-title");
+let otherPracticeTime = 0;
+
+//calculate percentages
+
+function calculatePercentages () {
     let repPracticeTime = totalPracticeTimeArray[totalPracticeTimeArray.length-1] - warmupTimeArray[warmupTimeArray.length-1];
     console.log(repPracticeTime);
     if (soloPercent.value) {
-        soloPracticeTime = parseInt(soloPercent.value)*repPracticeTime/100;;
+        soloPracticeTime = parseInt(soloPercent.value)*repPracticeTime/100;
     }
     if (soloPracticeTime > 179) {
         let leftoverMinutes = soloPracticeTime - 120;
@@ -223,16 +241,10 @@ soloPercent.addEventListener("input", function () {
         let leftoverMinutes = soloPracticeTime - 60;
         soloTitle.innerText = `Solo Pieces (1 hour ${leftoverMinutes} minutes)`;
     } else {
-    soloTitle.innerText = `Solo Pieces (${soloPracticeTime} minutes)`;
+        soloTitle.innerText = `Solo Pieces (${soloPracticeTime} minutes)`;
     }
-})
 
-const chamberPercent = document.querySelector("#chamber-percent-input");
-const chamberTitle = document.querySelector("#chamber-title");
-let chamberPracticeTime = 0;
-chamberPercent.addEventListener("input", function () {
-    let repPracticeTime = totalPracticeTimeArray[totalPracticeTimeArray.length-1] - warmupTimeArray[warmupTimeArray.length-1];
-    console.log(repPracticeTime);
+
     if (chamberPercent.value) {
         chamberPracticeTime = parseInt(chamberPercent.value)*repPracticeTime/100;;
     }
@@ -251,14 +263,8 @@ chamberPercent.addEventListener("input", function () {
     } else {
     chamberTitle.innerText = `Chamber Music (${chamberPracticeTime} minutes)`;
     }
-})
 
-const ensPercent = document.querySelector("#ens-percent-input");
-const ensTitle = document.querySelector("#ens-title");
-let ensPracticeTime = 0;
-ensPercent.addEventListener("input", function () {
-    let repPracticeTime = totalPracticeTimeArray[totalPracticeTimeArray.length-1] - warmupTimeArray[warmupTimeArray.length-1];
-    console.log(repPracticeTime);
+
     if (ensPercent.value) {
         ensPracticeTime = parseInt(ensPercent.value)*repPracticeTime/100;;
     }
@@ -277,14 +283,8 @@ ensPercent.addEventListener("input", function () {
     } else {
     ensTitle.innerText = `Ensemble Music (${ensPracticeTime} minutes)`;
     }
-})
 
-const otherPercent = document.querySelector("#other-percent-input");
-const otherTitle = document.querySelector("#other-title");
-let otherPracticeTime = 0;
-otherPercent.addEventListener("input", function () {
-    let repPracticeTime = totalPracticeTimeArray[totalPracticeTimeArray.length-1] - warmupTimeArray[warmupTimeArray.length-1];
-    console.log(repPracticeTime);
+
     if (otherPercent.value) {
         otherPracticeTime = parseInt(otherPercent.value)*repPracticeTime/100;;
     }
@@ -303,7 +303,8 @@ otherPercent.addEventListener("input", function () {
     } else {
         otherTitle.innerText = `Other Music (${otherPracticeTime} minutes)`;
     }
-})
+}
+
 
 const soloRow1 = document.querySelector("#solo-1-row");
 const soloRow2 = document.querySelector("#solo-2-row");
@@ -321,7 +322,27 @@ const otherRow1 = document.querySelector("#other-row");
 const otherRow2 = document.querySelector("#other-2-row");
 const otherRow3 = document.querySelector("#other-3-row");
 
+function resetChart () {
+    soloTitle.classList.remove("invisible");
+    soloRow1.classList.remove("hidden");
+    soloRow2.classList.remove("hidden");
+    soloRow3.classList.remove("hidden");
+    chamberTitle.classList.remove("invisible");
+    chamberRow1.classList.remove("hidden");
+    chamberRow2.classList.remove("hidden");
+    chamberRow3.classList.remove("hidden");
+    ensTitle.classList.remove("invisible");
+    ensRow1.classList.remove("hidden");
+    ensRow2.classList.remove("hidden");
+    ensRow3.classList.remove("hidden");
+    otherTitle.classList.remove("invisible");
+    otherRow1.classList.remove("hidden");
+    otherRow2.classList.remove("hidden");
+    otherRow3.classList.remove("hidden");
+}
+
 function fillChart () {
+    resetChart();
     if (!solo1Input.value) {
         soloRow1.classList.add("hidden");
     }
@@ -417,17 +438,20 @@ function createChart () {
     else if (otherPercent.value && (!other1Input.value && !other2Input.value && !other3Input.value)) {
         alert("Please enter at least one piece of music in the Other category");
     }
-    else if (soloPracticeTime + chamberPracticeTime + ensPracticeTime + otherPracticeTime !== totalPracticeTime) {
-        alert("Your total practice time allotment must equal 100%");
-    } 
     else if (!solo1Input.value && !solo2Input.value && !solo3Input.value && !chamber1Input.value
         && !chamber2Input.value && !chamber3Input.value && !ens1Input.value && !ens2Input.value && !ens3Input.value
         && !other1Input.value && !other2Input.value && !other3Input.value) {
             alert("You must enter at least one piece to practice");
         }
     else {
-    fillChart();
-    showChart();
+        fillChart();
+        calculatePercentages();
+        if (soloPracticeTime + chamberPracticeTime + ensPracticeTime + otherPracticeTime + warmupTime !== totalPracticeTime) {
+            alert("Your total practice time allotment must equal 100%");
+        } 
+         else {
+        showChart();
+        }
     }
     
 }
