@@ -260,18 +260,22 @@ const otherRow3 = document.querySelector("#other-3-row");
 
 function resetChart () {
     soloTitle.classList.remove("invisible");
+    soloTitle.classList.remove("hidden");
     soloRow1.classList.remove("hidden");
     soloRow2.classList.remove("hidden");
     soloRow3.classList.remove("hidden");
     chamberTitle.classList.remove("invisible");
+    chamberTitle.classList.remove("hidden");
     chamberRow1.classList.remove("hidden");
     chamberRow2.classList.remove("hidden");
     chamberRow3.classList.remove("hidden");
     ensTitle.classList.remove("invisible");
+    ensTitle.classList.remove("hidden");
     ensRow1.classList.remove("hidden");
     ensRow2.classList.remove("hidden");
     ensRow3.classList.remove("hidden");
     otherTitle.classList.remove("invisible");
+    otherTitle.classList.remove("hidden");
     otherRow1.classList.remove("hidden");
     otherRow2.classList.remove("hidden");
     otherRow3.classList.remove("hidden");
@@ -356,7 +360,7 @@ function fillChart () {
     }
 }
 
-//if the box is checked, show all pieces to practice in random order, also known as "interleaved practicing"
+//if the box is checked, show all pieces to practice in random order, also known as the "interleaved practicing" method
 
 //keep the math the same for each category, but do not show titles (solo music, chamber music, etc.)
 //calculate practice time for each individual piece rather than by category
@@ -387,9 +391,7 @@ function populateRandomizedChart () {
     if (solo3Input.value) {
         soloPieceCount++;
     }
-
     let indSoloPracticeTime = soloPracticeTime/soloPieceCount;
-
     if (solo1Input.value) {
         solo1Output.innerText = `${solo1Input.value}: ${indSoloPracticeTime} minutes`;
     }
@@ -461,21 +463,15 @@ function populateRandomizedChart () {
     other3Output.innerText = `${other3Input.value}: ${indOtherPracticeTime} minutes`;
 }
 
+const shuffleChart = document.querySelector(".practice-chart");
+let rowsCollection = shuffleChart.querySelectorAll("tr");
+ 
+
 function sortTable() {
-    //get the parent table for convenience
-    const shuffleChart = document.querySelector(".practice-chart");
-  
-    //1. get all rows
-    let rowsCollection = shuffleChart.querySelectorAll("tr");
-  
-    //2. convert to array
     let rows = Array.from(rowsCollection)
-      .slice(3); //skip the header row
-  
-    //3. shuffle
+      .slice(3);
     shuffleArray(rows);
   
-    //4. add back to the DOM
     for (const row of rows) {
       shuffleChart.appendChild(row);
     }
@@ -490,29 +486,16 @@ function sortTable() {
     }
   }
 
-const randomizeOrderButton = document.querySelectorAll("#randomize-order-box");
+  function unsortTable () {
+    let rows = Array.from(rowsCollection);
+    for (const row of rows) {
+        shuffleChart.appendChild(row);
+      }
+  }
+const randomizeOrderButton = document.querySelector("#randomize-order-box");
 
 function createRandomizedChart () {
-    setTotalPracticeTime();
-    setWarmupTime();
-    populateRandomizedChart();
-    fillChart();
-    soloTitle.classList.add("invisible");
-    sortTable();
-    calculatePercentages();
-    if (soloPracticeTime + chamberPracticeTime + ensPracticeTime + otherPracticeTime + warmupTime !== totalPracticeTime) {
-        alert("Your total practice time allotment must equal 100%");
-    } 
-    else {
-    showChart();
-    }
-}
-
-
-//put this on the button
-function createChart () {
-
-    //checking to make sure everything is filled out correctly
+        //checking to make sure everything is filled out correctly
 
     if (!totalHours.value && !totalMins.value) {
         alert("You must enter your total practice time");
@@ -534,10 +517,54 @@ function createChart () {
         && !other1Input.value && !other2Input.value && !other3Input.value) {
             alert("You must enter at least one piece to practice");
         }
-    else if (randomizeOrderButton.checked === true) {
-        createRandomizedChart();
-    }
     else {
+        //reset to factory settings
+    setTotalPracticeTime();
+    setWarmupTime();
+    fillChart();
+    soloTitle.classList.add("invisible");
+    sortTable();
+    calculatePercentages();
+    if (soloPracticeTime + chamberPracticeTime + ensPracticeTime + otherPracticeTime + warmupTime !== totalPracticeTime) {
+        alert("Your total practice time allotment must equal 100%");
+    } 
+    else {
+        populateRandomizedChart();
+    showChart();
+    }
+}
+}
+
+
+//put this on the button
+function createChart () { 
+    //if check changes, doesn't update chart
+    //checking to make sure everything is filled out correctly
+    if (!totalHours.value && !totalMins.value) {
+        alert("You must enter your total practice time");
+    }
+    else if (soloPercent.value && (!solo1Input.value && !solo2Input.value && !solo3Input.value)) {
+        alert("Please enter at least one solo piece to practice");
+    }
+    else if (chamberPercent.value && (!chamber1Input.value && !chamber2Input.value && !chamber3Input.value)) {
+        alert("Please enter at least one chamber music piece to practice");
+    }
+    else if (ensPercent.value && (!ens1Input.value && !ens2Input.value && !ens3Input.value)) {
+        alert("Please enter at least one ensemble music piece to practice");
+    }
+    else if (otherPercent.value && (!other1Input.value && !other2Input.value && !other3Input.value)) {
+        alert("Please enter at least one piece of music in the Other category");
+    }
+    else if (!solo1Input.value && !solo2Input.value && !solo3Input.value && !chamber1Input.value
+        && !chamber2Input.value && !chamber3Input.value && !ens1Input.value && !ens2Input.value && !ens3Input.value
+        && !other1Input.value && !other2Input.value && !other3Input.value) {
+            alert("You must enter at least one piece to practice");
+        }
+    else if (randomizeOrderButton.checked) {
+        createRandomizedChart();
+    }        
+    else {
+        unsortTable();
         setTotalPracticeTime();
         setWarmupTime();
         populateChart();
@@ -550,5 +577,7 @@ function createChart () {
         showChart();
         }
     }
-    
 }
+
+
+
