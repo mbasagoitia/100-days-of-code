@@ -106,7 +106,12 @@ input[type=number] {
 table, th, td {
     border: 1px solid black;
     border-spacing: 5px;
+    margin: 0;
   }
+
+table {
+    border-spacing: 0.3em;
+}
 
 .empty-space {
     height: 3em;

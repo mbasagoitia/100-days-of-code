@@ -311,7 +311,7 @@ function fillChart () {
     }
 
     if (!chamberPercent.value) {
-        chamberTitle.classList.add("invisible");
+        chamberTitle.classList.add("hidden");
         chamberRow1.classList.add("hidden");
         chamberRow2.classList.add("hidden");
         chamberRow3.classList.add("hidden");
@@ -330,7 +330,7 @@ function fillChart () {
     }
 
     if (!ensPercent.value) {
-        ensTitle.classList.add("invisible");
+        ensTitle.classList.add("hidden");
         ensRow1.classList.add("hidden");
         ensRow2.classList.add("hidden");
         ensRow3.classList.add("hidden");
@@ -349,7 +349,7 @@ function fillChart () {
     }
 
     if (!otherPercent.value) {
-        otherTitle.classList.add("invisible");
+        otherTitle.classList.add("hidden");
         otherRow1.classList.add("hidden");
         otherRow2.classList.add("hidden");
         otherRow3.classList.add("hidden");
@@ -367,7 +367,7 @@ let ensPieceCount;
 let otherPieceCount;
 
 function populateRandomizedChart () {
-
+//time not calculating properly
     soloTitle.classList.add("invisible");
     chamberTitle.classList.add("hidden");
     ensTitle.classList.add("hidden");
@@ -461,10 +461,51 @@ function populateRandomizedChart () {
     other3Output.innerText = `${other3Input.value}: ${indOtherPracticeTime} minutes`;
 }
 
-function randomizeOrder () {
-    populateRandomizedChart ();
+function sortTable() {
+    //get the parent table for convenience
+    const shuffleChart = document.querySelector(".practice-chart");
+  
+    //1. get all rows
+    let rowsCollection = shuffleChart.querySelectorAll("tr");
+  
+    //2. convert to array
+    let rows = Array.from(rowsCollection)
+      .slice(3); //skip the header row
+  
+    //3. shuffle
+    shuffleArray(rows);
+  
+    //4. add back to the DOM
+    for (const row of rows) {
+      shuffleChart.appendChild(row);
+    }
+  }
+
+  function shuffleArray(array) {
+    for (var i = array.length - 1; i > 0; i--) {
+      var j = Math.floor(Math.random() * (i + 1));
+      var temp = array[i];
+      array[i] = array[j];
+      array[j] = temp;
+    }
+  }
+
+const randomizeOrderButton = document.querySelectorAll("#randomize-order-box");
+
+function createRandomizedChart () {
+    setTotalPracticeTime();
+    setWarmupTime();
+    populateRandomizedChart();
     fillChart();
-    //somehow randomize the order in which the rows show up
+    soloTitle.classList.add("invisible");
+    sortTable();
+    calculatePercentages();
+    if (soloPracticeTime + chamberPracticeTime + ensPracticeTime + otherPracticeTime + warmupTime !== totalPracticeTime) {
+        alert("Your total practice time allotment must equal 100%");
+    } 
+    else {
+    showChart();
+    }
 }
 
 
@@ -493,6 +534,9 @@ function createChart () {
         && !other1Input.value && !other2Input.value && !other3Input.value) {
             alert("You must enter at least one piece to practice");
         }
+    else if (randomizeOrderButton.checked === true) {
+        createRandomizedChart();
+    }
     else {
         setTotalPracticeTime();
         setWarmupTime();
