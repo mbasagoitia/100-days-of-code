@@ -42,7 +42,6 @@ function showForm () {
 }
 
 //set checkmark background on empty squares when clicked
-const checkBox = document.querySelectorAll(".empty-space");
 const check = document.querySelectorAll(".fa-check");
 
 check.forEach(element => {
@@ -543,6 +542,7 @@ function createRandomizedChart () {
 function createChart () { 
     //if check changes, doesn't update chart
     //checking to make sure everything is filled out correctly
+    window.scrollTo(0, 0);
     if (!totalHours.value && !totalMins.value) {
         alert("You must enter your total practice time");
     }

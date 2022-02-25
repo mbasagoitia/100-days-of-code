@@ -1,10 +1,7 @@
 html, body, div, h1 {
     margin: 0;
     padding: 0;
-}
-
-.red {
-    background-color: red !important;
+    font-size: 1.1rem;
 }
 
 .hidden {
@@ -12,7 +9,7 @@ html, body, div, h1 {
 }
 
 .invisible {
-    visibility: hidden;
+    visibility: hidden !important;
 }
 
 .visible {
@@ -30,14 +27,30 @@ body {
 .title {
     height: 3em;
     line-height: 3em;
+    font-size: 2rem;
+}
+
+.date {
+    font-size: 1.5rem;
+}
+
+.right-wrapper {
+    margin-left: 2em;
 }
 
 button {
     font-family: "Mulish", sans-serif;
+    font-size: 1.1em;
     background-color: #457b9d;
     color: #f1faee;
     border-radius: 5px;
     border: 1px solid #1d3557;
+}
+
+button:hover {
+    background-color: #f1faee;
+    border: 1px solid #1d3557;
+    color: #457b9d;
 }
 
 input {
@@ -55,6 +68,7 @@ input[type=number]::-webkit-outer-spin-button {
     display: flex;
     flex-direction: column;
     text-align: center;
+    justify-content: center;
 }
 
 .check-background {
@@ -77,6 +91,7 @@ input[type=number]::-webkit-outer-spin-button {
     display: flex;
     justify-content: space-evenly;
     width: 100%;
+    justify-self: center;
 }
 
 .time-calc-form {
@@ -91,6 +106,8 @@ input[type=number]::-webkit-outer-spin-button {
     margin: 5px;
     border: 1px solid #1d3557;
     border-radius: 2px;
+    margin: 10px;
+    font-size: 1.1em;
 }
 
 input[type=number] {
@@ -113,16 +130,16 @@ input[type=number] {
 
 #randomize-order-box {
     align-self: center;
-    height: 2em;
-    width: 2em;
+    height: 3em;
+    width: 3em;
     border-radius: 100%;
 }
 
 #show-chart-button {
-    width: 100%;
+    width: 90%;
     height: 4em;
-    margin-top: 1em;
-
+    margin-top: 1.2em;
+    align-self: center;
 }
 
 @media (max-width: 870px) {
@@ -139,13 +156,26 @@ input[type=number] {
 
 .chart-content-wrapper {
     margin: 0 auto;
+    width: 90%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 2em;
+    align-self: center;
 }
 
 #show-form-button {
-    margin-bottom: 2em;
-    margin-top: 2em;
+    margin-bottom: 1em;
+    margin-top: 1em;
     padding: 0.5em;
     color: #f1faee;
+    width: 6em;
+}
+
+#show-form-button:hover {
+    background-color: #f1faee;
+    border: 1px solid #1d3557;
+    color: #457b9d;
 }
 
 .no-border {
@@ -159,8 +189,21 @@ table, th, td {
     border-radius: 3px;
   }
 
+  td {
+      width: 2em;
+      height: 2em;
+  }
+
 table {
     border-spacing: 0.3em;
+    align-self: center;
+    width: 95%;
+    border: none;
+}
+
+.pieces-list {
+    width: 30%;
+    padding: 7px;
 }
 
 .pieces-list, .empty-space {
@@ -180,7 +223,7 @@ table {
 }
 
 .fa-check:hover {
-    opacity: 1;
+    opacity: 0.8;
 }
 
 .warm-up {
@@ -195,10 +238,12 @@ table {
     margin-top: 2em;
     margin-bottom: 2em;
     padding: 1em;
-    width: 100%;
+    width: 82%;
     height: 10em;
     resize: none;
     font-family: "Mulish", sans-serif;
+    font-size: 0.9em;
+    color: #1d3557;
     border: 1px solid #1d3557;
     border-radius: 3px;
 }
@@ -212,16 +257,17 @@ table {
 .practice-notes-wrapper {
     justify-content: center;
     text-align: center;
+    width: 100vw;
 }
 
 #print-button {
-    width: 3em;
-    height: 3em;
+    width: 2.5em;
+    height: 2.5em;
 }
 
 .print-button-wrapper {
     display: flex;
-    justify-content: flex-end;
+    align-self: flex-end;
     margin-top: 2em;
 }
 
@@ -237,4 +283,53 @@ table {
     }
 }
 
+@media (max-width: 1000px) {
+    .background {
+        width: 100%;
+    }
+
+    .chart-content-wrapper {
+        width: 90vw;
+        font-size: 0.9rem;
+        margin: 0;
+        padding: 0;
+    }
+
+    table {
+        width: 95%;
+    }
+
+    .practice-notes-wrapper {
+        width: 90%;
+        margin-right: 1.8em;
+    }
+
+    #practice-notes {
+        width: 100%;
+    }
+
+    #print-button {
+        margin-right: 2em;
+        font-size: 0.8em;
+    }
+}
+
+@media (max-width: 500px) {
+    .background {
+        margin: 5px;
+        padding: 0;
+    }
+    .chart-content-wrapper {
+        font-size: 0.7rem;
+    }
+
+    #print-button {
+        font-size: 0.7em;
+    }
+
+    table {
+        width: 98%;
+        min-width: 315px;
+    }
+}
 
