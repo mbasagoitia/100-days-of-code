@@ -42,13 +42,16 @@ function showForm () {
 }
 
 //set checkmark background on empty squares when clicked
-
 const checkBox = document.querySelectorAll(".empty-space");
-checkBox.forEach(element => {
+const check = document.querySelectorAll(".fa-check");
+
+check.forEach(element => {
     element.addEventListener("click", function () {
-        element.classList.toggle("check-background");
+        this.classList.toggle("visible");
     })
 })
+
+
 
 //calculate total practice time
 const totalHours = document.querySelector("#practice-time-hours");
@@ -486,7 +489,7 @@ function sortTable() {
     }
   }
 
-  function unsortTable () {
+function unsortTable () {
     let rows = Array.from(rowsCollection);
     for (const row of rows) {
         shuffleChart.appendChild(row);
