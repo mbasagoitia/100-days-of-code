@@ -1,0 +1,82 @@
+html, body, div, h1 {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background: #ffcdb2;
+}
+
+.title {
+    color: #e5989b;
+    text-align: center;
+    height: 3em;
+    line-height: 3em;
+    background: #f8f9fa;
+}
+
+.large-cards-area {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 1.5em;
+}
+
+.card-template {
+
+}
+
+.card-border {
+    background: #f8f9fa;
+    border-radius: 0.5em;
+    width: 10em;
+    height: 13em;
+}
+
+.photo-area {
+    background: grey;
+    position: relative;
+    width: 9em;
+    height: 9em;
+    left: 0.5em;
+    top: 0.8em;
+}
+
+.image-slider {
+    height: 6em;
+    margin-top: 0.5em;
+    overflow-y: hidden;
+    overflow-x: scroll;
+    white-space: nowrap;
+    padding-bottom: 2em;
+}
+
+.small-image-border {
+    background: #f8f9fa;
+    width: 6em;
+    height: 6em;
+    display: inline-block;
+    margin: 2px;
+}
+
+.small-image {
+    background: grey;
+    position: relative;
+    width: 5em;
+    height: 5em;
+    left: 0.5em;
+    top: 0.5em;
+}
+
+.button-wrapper {
+    height: 3em;
+    display: flex;
+    margin-top: 1em;
+    align-items: center;
+    justify-content: center;
+}
+
+#create-display-button {
+    padding: 3em;
+    height: 3em;
+    margin: 0;
+}
