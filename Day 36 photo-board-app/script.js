@@ -1,7 +1,7 @@
 $(document).ready(function () {
     //when a small image is clicked, fill large image with its photo
-    $(".small-image").click(function () {
-        console.log("clicked");
+    $(".image-slider").on("click", ".small-image", function () {
+        //console.log("clicked");
         let source = $(this).attr("src");
         $(".large-image[src='#']").first().attr("src", source);
     })
@@ -13,7 +13,7 @@ $(document).ready(function () {
 
 
 //get random image from unsplash
-const getData = async function () {
+const getNewPhoto = async function () {
     const res = await fetch(
      "https://api.unsplash.com/search/photos?query=nature&client_id=ym4WDstZ94HOSUUObxZBmX5b6P2lAgs3ma34iqIWFAM"
     );
@@ -21,7 +21,12 @@ const getData = async function () {
     console.log(images);
     generateRandomImage(images);
   };
-  getData();
+  getNewPhoto();
+  getNewPhoto();
+  getNewPhoto();
+  getNewPhoto();
+  getNewPhoto();
+  getNewPhoto();
 
 function generateRandomImage(images) {
     let randomIndex = Math.floor(Math.random()*images.results.length);
@@ -39,7 +44,7 @@ function generateRandomImage(images) {
     $(newBorder).appendTo(".image-slider");
     $(newWrapper).appendTo(newBorder);
     $(newImage).appendTo(newWrapper);
-}
 
+}
 
 })
