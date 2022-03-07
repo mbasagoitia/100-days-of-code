@@ -27,10 +27,6 @@ body {
     margin-top: 1.5em;
 }
 
-.card-template {
-
-}
-
 .card-border {
     background: #f8f9fa;
     border-radius: 0.5em;
@@ -49,19 +45,26 @@ body {
 
 .image-slider {
     height: 6em;
+    margin: 0 auto;
     margin-top: 0.5em;
     overflow-y: hidden;
     overflow-x: scroll;
     white-space: nowrap;
     padding-bottom: 2em;
-    display: flex;
-    justify-content: center;
+    padding-left: 2px;
+    text-align: center;
 }
 
 .image-slider img {
     object-fit: cover;
     width: 5em;
     height: 5em;
+    overflow: hidden;
+    background: grey;
+    position: relative;
+    width: 5em;
+    height: 5em;
+    top: 0.5em;
 }
 
 .small-image-border {
@@ -72,25 +75,50 @@ body {
     margin: 2px;
 }
 
-.small-image {
-    background: grey;
-    position: relative;
-    width: 5em;
-    height: 5em;
-    left: 0.5em;
-    top: 0.5em;
+.button-area {
+    display: flex;
+    height: 3em;
+    margin-top: 1em;
+    align-items: center;
+    justify-content: space-around;
+    width: 100vw;
 }
 
 .button-wrapper {
-    height: 3em;
+    width: 50%;
     display: flex;
-    margin-top: 1em;
-    align-items: center;
-    justify-content: center;
+    justify-content: left;
+    gap: 10px;
 }
 
 #create-display-button {
-    padding: 3em;
-    height: 3em;
-    margin: 0;
+    
 }
+
+.search-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#searchbar {
+    width: 16em;
+    text-align: center;
+}
+
+.photo-display-area {
+    display: flex;
+    justify-content: center;
+}
+
+.bg-img-wrapper {
+    width: 65em;
+    height: 35em;
+    overflow: hidden;
+}
+
+#lights-background {
+    width: 65em;
+    height: 65em;
+}
+
