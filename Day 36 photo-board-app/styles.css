@@ -3,8 +3,66 @@ html, body, div, h1 {
     padding: 0;
 }
 
+.hidden {
+    display: none;
+}
+
+.hanging-style-1 {
+    position: absolute;
+    top: 110px;
+    left: 40px;
+    box-shadow: 5px 5px 15px 5px rgba(0,0,0,0.75);
+}
+.hanging-style-2 {
+    position: absolute;
+    top: 150px;
+    left: 385px;
+    box-shadow: 5px 5px 15px 5px rgba(0,0,0,0.75);
+}
+.hanging-style-3 {
+    position: absolute;
+    top: 150px;
+    right: 390px;
+    box-shadow: 5px 5px 15px 5px rgba(0,0,0,0.75);
+}
+.hanging-style-4 {
+    position: absolute;
+    top: 110px;
+    right: 40px;
+    box-shadow: 5px 5px 15px 5px rgba(0,0,0,0.75);
+}
+.hanging-style-5 {
+    position: absolute;
+    top: 250px;
+    left: 213px;
+    box-shadow: 5px 5px 15px 5px rgba(0,0,0,0.75);
+}
+.hanging-style-6 {
+    position: absolute;
+    top: 285px;
+    left: 557px;
+    box-shadow: 5px 5px 15px 5px rgba(0,0,0,0.75);
+}
+.hanging-style-7 {
+    position: absolute;
+    top: 240px;
+    right: 215px;
+    box-shadow: 5px 5px 15px 5px rgba(0,0,0,0.75);
+}
+
+.clip {
+    height: 4em;
+    width: 1em;
+    background: #C59E6B;
+    position: relative;
+    top: -50px;
+    margin: 0 auto;
+}
+
 body {
     background: #ffcdb2;
+    display: flex;
+    flex-direction: column;
 }
 
 .title {

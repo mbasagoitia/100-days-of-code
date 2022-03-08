@@ -9,8 +9,6 @@ $(document).ready(function () {
     $("#reset-photos-button").click(function() {
         $(".large-image").attr("src", "#");
     })
-
-
 //get random image from unsplash
 
 $("#add-image-button").on("click", function (){
@@ -26,8 +24,6 @@ const getNewPhoto = async function () {
     generateRandomImage(images);
   };
 
-
-
 function generateRandomImage(images) {
     let randomIndex = Math.floor(Math.random()*images.results.length);
     let randomImage = images.results[randomIndex];
@@ -42,15 +38,24 @@ function generateRandomImage(images) {
     $(newBorder).appendTo(".image-slider");
     $(newWrapper).appendTo(newBorder);
     $(newImage).appendTo(newWrapper);
-
     }
 
     //create photo display
     $("#create-display-button").on("click", function(){
-        //hide main area eventually
-        console.log("clicked");
-        $(".small-image-border").appendTo($("bg-img-wrapper"));
+        //hide main area buttons and just change buttons
+        $(".title").hide();
+        $(".button-area").hide();
+        $(".image-slider").hide();
+        $(".lights-bg-wrapper").css({
+            "background-image": "url('img/fairy-lights-background.jpg')",
+            "width": "100vw",
+            "height": "100vh",
+            "align-self": "center",
+            "display": "flex"
+        });
+        for (let i=1; i<=7; i++) {
+            $(`.card-template:nth-of-type(${i})`).addClass(`hanging-style-${i}`);
+        }
+        $(".clip").show();
     })
-
-
 })
