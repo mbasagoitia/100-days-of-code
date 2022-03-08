@@ -22,13 +22,13 @@ html, body, div, h1 {
 .hanging-style-3 {
     position: absolute;
     top: 150px;
-    right: 390px;
+    right: 375px;
     box-shadow: 5px 5px 15px 5px rgba(0,0,0,0.75);
 }
 .hanging-style-4 {
     position: absolute;
     top: 110px;
-    right: 40px;
+    right: 30px;
     box-shadow: 5px 5px 15px 5px rgba(0,0,0,0.75);
 }
 .hanging-style-5 {
@@ -46,8 +46,15 @@ html, body, div, h1 {
 .hanging-style-7 {
     position: absolute;
     top: 240px;
-    right: 215px;
+    right: 200px;
     box-shadow: 5px 5px 15px 5px rgba(0,0,0,0.75);
+}
+
+.hanging-pic {
+    position: relative;
+    width: 5em;
+    height: 5em;
+    bottom: 4em;
 }
 
 .clip {
@@ -57,6 +64,16 @@ html, body, div, h1 {
     position: relative;
     top: -50px;
     margin: 0 auto;
+    align-items: center;
+    border-radius: 1px 1px 35% 35%;
+    z-index: 2;
+    box-shadow: 2px 2px 5px rgba(0,0,0,0.75);
+}
+
+.clip-wire {
+    height: 0.2em;
+    width: 1em;
+    background: #2c2c2e;
 }
 
 body {
@@ -100,6 +117,7 @@ body {
     left: 0.5em;
     top: 0.8em;
 }
+
 
 .image-slider {
     height: 6em;
@@ -149,10 +167,6 @@ body {
     gap: 10px;
 }
 
-#create-display-button {
-    
-}
-
 .search-wrapper {
     display: flex;
     flex-direction: column;
@@ -180,3 +194,53 @@ body {
     height: 65em;
 }
 
+@media (max-width: 1267px) {
+    .card-border {
+        width: 8em;
+        height: 10.4em;
+    }
+    .hanging-pic {
+        width: 8em;
+        height: 8em;
+        bottom: 4em;
+    }
+    .photo-area {
+        width: 7em;
+        height: 7em;
+    }
+    .large-cards-area img {
+        width: 7em;
+        height: 7em;
+    }
+}
+
+@media (max-width: 1225px) {
+    .hanging-style-1 {
+        top: 110px;
+        left: 20px;
+    }
+    .hanging-style-2 {
+        top: 150px;
+        left: 355px;
+    }
+    .hanging-style-3 {
+        top: 150px;
+        right: 405px;
+    }
+    .hanging-style-4 {
+        top: 110px;
+        right: 70px;
+    }
+    .hanging-style-5 {
+        top: 250px;
+        left: 183px;
+    }
+    .hanging-style-6 {
+        top: 285px;
+        left: 527px;
+    }
+    .hanging-style-7 {
+        top: 240px;
+        right: 230px;
+    }
+}

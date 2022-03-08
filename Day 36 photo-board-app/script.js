@@ -49,13 +49,14 @@ function generateRandomImage(images) {
         $(".lights-bg-wrapper").css({
             "background-image": "url('img/fairy-lights-background.jpg')",
             "width": "100vw",
-            "height": "100vh",
+            "height": "130vh",
             "align-self": "center",
             "display": "flex"
         });
         for (let i=1; i<=7; i++) {
             $(`.card-template:nth-of-type(${i})`).addClass(`hanging-style-${i}`);
         }
-        $(".clip").show();
+        $(".clip").show().css("display", "flex");
+        $(".large-image").addClass("hanging-pic");
     })
 })
