@@ -1,8 +1,17 @@
 body {
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
     height: 90vh;
+    background: lightblue;
+    font-family: 'Poppins', sans-serif;
+}
+
+img {
+    object-fit: cover;
+    margin-top: 10px;
+    border: 2px solid black;
 }
 
 .wrapper {
@@ -21,4 +30,8 @@ body {
 #slide {
     width: 10em;
     height: 10em;
+}
+
+#searchbar, #button {
+    font-family: 'Poppins', sans-serif;
 }

@@ -47,7 +47,7 @@ function generateRandomImage(images) {
         $(".button-area").hide();
         $(".image-slider").hide();
         $(".lights-bg-wrapper").css({
-            "background-image": "url('img/fairy-lights-background.jpg')",
+            "background-image": "url('https://images.unsplash.com/photo-1516034037053-83125f4a9840?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MXx8ZmFpcnklMjBsaWdodHN8ZW58MHx8MHx8&w=1000&q=80')",
             "width": "100vw",
             "height": "130vh",
             "align-self": "center",
