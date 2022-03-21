@@ -1,0 +1,74 @@
+body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.title {
+    margin-top: 2em;
+    text-align: center;
+}
+
+#instrument-family-game {
+    background: red;
+}
+
+#composer-nationality-game {
+    background: blue;
+}
+
+#pieces-era-game {
+    background: yellow;
+}
+
+.hidden {
+    display: none;
+}
+
+#choose-game-page {
+    width: 100%;
+}
+
+.buttons-area {
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    margin-top: 4em;
+}
+
+button {
+    position: relative;
+    height: 14em;
+    width: 18em;
+    background-size: cover;
+    background-position: center;
+    border: none;
+    border-radius: 5px;
+}
+button::before {    
+    content: "";
+    background-image: url('https://placekitten.com/1200/800');
+    background-size: cover;
+    position: absolute;
+    top: 0px;
+    right: 0px;
+    bottom: 0px;
+    left: 0px;
+    opacity: 0.75;
+}
+
+button:hover {
+    opacity: 0.4;
+}
+
+#instruments-game-button {
+    background-image: url("img/instruments.jpg");
+}
+
+#composers-game-button {
+    background-image: url("img/composer.jpg");
+}
+
+#pieces-game-button {
+    background-image: url("img/sheet-music.jpg");
+}
