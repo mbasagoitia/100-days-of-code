@@ -1,5 +1,9 @@
 $(document).ready(function(){
-    $("#instruments-game-button").click(function(){
-        $("#instrument-family-game").removeClass("hidden");
+    $("img,.img-caption").hover(function() {
+        $(this).parent().find(".img-caption").toggleClass("hidden");
     })
+    $(".img-caption").hover(function () {
+        $(this).parent().find("img").toggleClass("transparent");
+    })
+    
 })
