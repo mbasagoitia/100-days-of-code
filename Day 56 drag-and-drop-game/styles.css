@@ -53,7 +53,7 @@ body {
     height: 22em;
 }
 
-img {
+.buttons-area img {
     position: relative;
     height: 15em;
     width: 100%;
@@ -62,7 +62,7 @@ img {
     cursor: pointer;
 }
 
-img:hover {
+.buttons-area img:hover {
     opacity: 0.3;
 }
 
@@ -124,7 +124,7 @@ img:hover {
 
 .draggable-cards-area {
     margin-top: 5px;
-    height: 15em;
+    height: 13em;
     justify-self: center;
 }
 
@@ -132,7 +132,9 @@ img:hover {
     cursor: grab;
     width: 10em;
     display: flex;
+    flex-direction: column;
     justify-content: center;
+    align-items: center;
     height: 12em;
     text-align: center;
     margin: 3px;
@@ -143,8 +145,18 @@ img:hover {
 }
 
 .challenge-card p {
-    margin-top: 3em;
+    margin-top: 1em;
     font-weight: bold;
+    text-align: center;
+}
+
+.challenge-card img {
+    position: relative;
+    height: 65%;
+    width: 95%;
+    margin-top: 0.5em;
+    border-radius: 3px;
+    object-fit: cover;
 }
 
 
