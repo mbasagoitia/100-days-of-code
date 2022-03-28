@@ -130,6 +130,7 @@ body {
 
 .challenge-card {
     cursor: grab;
+    background: grey;
     width: 10em;
     display: flex;
     flex-direction: column;
@@ -155,6 +156,7 @@ body {
     height: 65%;
     width: 95%;
     margin-top: 0.5em;
+    border: 1px solid black;
     border-radius: 3px;
     object-fit: cover;
 }
